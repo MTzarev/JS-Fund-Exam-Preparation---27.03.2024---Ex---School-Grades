@@ -10,13 +10,15 @@ function schoolGrades(input) {
             object[name].total += totalGrades;
             object[name].qty += qty;
         } else {
-           
+            
             object[name] = { total: totalGrades, qty: qty };
         }
     }
 
-    
-    for (let name in object) {
+    let sortedNames = Object.keys(object).sort();
+
+
+    for (let name of sortedNames) {
         let averageGrade = object[name].total / object[name].qty;
         console.log(`${name}: ${averageGrade.toFixed(2)}`);
     }
